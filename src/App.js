@@ -1,9 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import Counter from './Counter';
+import React, {useState} from 'react';
 
-function WelcomeMessage(){
-  return <p>Welcome!</p>
+function WelcomeMessage({thename}){
+  const [ count, setCount] = useState(0);
+  return (
+    <div>
+      
+      <Counter setCount={setCount}/>
+      <p>Welcome! {thename} {count}</p>
+    </div>
+  )
 }
 
 function App() {
@@ -15,16 +23,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <WelcomeMessage/>
-        <Counter/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <WelcomeMessage thename="Theresa"/>
+        {/* <Counter/> */}
       </header>
     </div>
   );
